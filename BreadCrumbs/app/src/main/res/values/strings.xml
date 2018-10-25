@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WifiChat</string>
+    <string name="submit">Submit</string>
+    <string name="enter_message">Enter a message HERE that is to be displayed to anyone using this app on the same Wi-Fi</string>
+    <string name="duration">Message Duration in Minutes</string>
+    <string name="go_to_chatroom">Go to Chatroom</string>
+    <string name="submit_a_message">Submit a Message</string>
+    <string name="refresh">Refresh</string>
+    <string name="banner_ad_unit_id">ca-app-pub-4030747098414547/7812207316</string>
+</resources>
