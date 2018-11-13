@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         mEdit.setTextColor(Color.BLACK);
         nextPage=(Button) findViewById(R.id.goToDisplay);
 
+
+
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
             public void createMessage(){
                 try {
+                    FirebaseApp.initializeApp(getApplicationContext());
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef = database.getReference("Breadcrumb");
 
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             private void goToDisplayMessages() {
-                Intent intent = new Intent(getApplicationContext(), DisplayMessages.class);
+                Intent intent = new Intent(getApplicationContext(), DisplayMessagesActivity.class);
                 startActivity(intent);
             }
             private boolean notConnectedToWifi(){
@@ -76,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DisplayMessages.class);
+                Intent intent = new Intent(getApplicationContext(), DisplayMessagesActivity.class);
                 startActivity(intent);
             }
         });
