@@ -61,16 +61,25 @@ public class DisplayMessagesActivity extends AppCompatActivity {
                 getMessages();
             }
         });}
+    /**
+     * clear the table of messages
+     */
     public void clear(){
         TableLayout ll = (TableLayout) findViewById(R.id.displayLinear);
         ll.removeAllViews();
     }
+    /**
+     * Check if the device is currently connected to wifi or if it is enabled
+     * @return true or false if connected
+     */
     private boolean notConnectedToWifi(){
         ConnectivityManager conMgr = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
         return !(activeNetwork != null && activeNetwork.isConnected() && activeNetwork.getType() != ConnectivityManager.TYPE_WIFI);
     }
-
+    /**
+     * Get all relevant messages from the database to display
+     */
     public void getMessages() {
         try
         {

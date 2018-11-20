@@ -19,14 +19,26 @@ public class Breadcrumb {
         this.expirationTime= new Date();
     }
 
+    /**
+     * Set the message of this object
+     * @param message
+     */
     public void setMessage(String message) {
         this.message = message;
     }
 
+    /**
+     * set the duration of the message
+     * @param duration
+     */
     public void setDuration(int duration) {
         this.duration = duration;
     }
 
+    /**
+     * Get the users public IP address and set it as location
+     *
+     */
     public void setLocation(){
         IpChecker ip = new IpChecker();
         IpTemp IpT = new IpTemp();
@@ -39,12 +51,26 @@ public class Breadcrumb {
             except.printStackTrace();
         }
     }
+
+    /**
+     * Set the Expiration Time to the current date
+     */
     public void setExpirationTime(){
         this.expirationTime = new Date(System.currentTimeMillis()+duration*60*1000);
     }
+
+    /**
+     * Return location (IP)
+     * @return ip
+     */
     public String getLocation(){
         return location;
     }
+
+    /**
+     * Convert Expiration Time to a String
+     * @return
+     */
     public String getStringExpirationTime(){
         try {
             DateFormat df = new SimpleDateFormat("-yyyyMMddHHmmss", Locale.ENGLISH);
@@ -56,6 +82,11 @@ public class Breadcrumb {
             return null;
         }
     }
+
+    /**
+     * Format the current date
+     * @return the current date
+     */
     public String getProperDate(){
         try {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
@@ -67,6 +98,11 @@ public class Breadcrumb {
             return null;
         }
     }
+
+    /**
+     * Get the Expiration Date of the message
+     * @return Expiration Date
+     */
     public Date getExpirationTime(){
         return expirationTime;
     }
